@@ -11,7 +11,7 @@ func main() {
 	http.Handle("/css/", fs)
 	http.Handle("/imgs/", fs)
 	http.HandleFunc("/", home)
-	http.HandleFunc("/", noticia)
+	http.HandleFunc("/noticia/", noticia)
 	http.ListenAndServe(":8080", nil)
 }
 

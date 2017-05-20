@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+    font-size: 100%;
+}
+
+.noticia {
+  width: 75%;
+  margin: auto;
+  background-color: #31ee7d;
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2em;
+}
+
+.cuerpo {
+  padding: 50px;
+  font-size: 1em;
+  text-align: justify;
+}
+
+.extras {
+  font-size: 1em;
+}
