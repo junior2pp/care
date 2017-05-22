@@ -14,7 +14,11 @@ import (
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/home", home)
-	r.HandleFunc("/noticia/{id}", noticia)
+
+	//Subenrutador de noticias
+	s := r.PathPrefix("/noticia").Subrouter()
+	s.HandleFunc("/{id:[0-9]+}", noticia)
+	s.HandleFunc("/nueva", nueva)
 
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("public"))))
 
@@ -79,7 +83,6 @@ func noticia(w http.ResponseWriter, r *http.Request)  {
 	}
 	defer rows.Close()
 	if D.Id == 0 {
-		fmt.Println("Documento no existente")
 		t, err := template.ParseFiles("./public/html/noticiaError.html")
 		if err != nil{
 			log.Println(err)
@@ -100,6 +103,10 @@ func noticia(w http.ResponseWriter, r *http.Request)  {
 	}
 
 
+}
+
+func nueva(w http.ResponseWriter, r *http.Request)  {
+	fmt.Fprintln(w, " Creando una nueva noticia")
 }
 
 func fecha()  {
