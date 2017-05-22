@@ -16,9 +16,10 @@ func main() {
 	r.HandleFunc("/home", home)
 
 	//Subenrutador de noticias
-	s := r.PathPrefix("/noticia").Subrouter()
-	s.HandleFunc("/{id:[0-9]+}", noticia)
-	s.HandleFunc("/nueva", nueva)
+	n := r.PathPrefix("/noticia").Subrouter()
+	n.HandleFunc("/{id:[0-9]+}", noticia)
+	n.HandleFunc("/nueva", nueva)
+	n.HandleFunc("/", lista)
 
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("public"))))
 
@@ -44,13 +45,17 @@ func home(w http.ResponseWriter, r *http.Request)  {
 		log.Println(err)
 	}
 }
-type DatosNoticia struct {
+type Noticia struct {
 	Id int
 	Titulo string
 	Cuerpo string
 	Fecha string
 	Autor string
 	Correo string
+}
+
+type ListaNoticia struct {
+	Noticias []Noticia
 }
 func noticia(w http.ResponseWriter, r *http.Request)  {
 
@@ -73,7 +78,7 @@ func noticia(w http.ResponseWriter, r *http.Request)  {
 		panic(err)
 	}
 
-	var D DatosNoticia
+	var D Noticia
 
 	for rows.Next() {
 		err = rows.Scan(&D.Id, &D.Titulo, &D.Cuerpo, &D.Fecha, &D.Autor, &D.Correo)
@@ -109,6 +114,55 @@ func nueva(w http.ResponseWriter, r *http.Request)  {
 	fmt.Fprintln(w, " Creando una nueva noticia")
 }
 
+func lista(w http.ResponseWriter, r *http.Request)  {
+
+	db, err:= sql.Open("sqlite3", "./datos.db")
+	if err != nil {
+		panic(err)
+	}
+
+	rows, err := db.Query("SELECT * FROM noticias")
+	if err != nil{
+		log.Println(err)
+	}
+
+	var L ListaNoticia
+	var (
+		Id int
+		Titulo string
+		Cuerpo string
+		Fecha string
+		Autor string
+		Correo string
+	)
+
+	for rows.Next() {
+
+		err = rows.Scan(&Id, &Titulo, &Cuerpo, &Fecha, &Autor, &Correo)
+		if err != nil {
+			panic(err)
+		}
+		L.Noticias = append(L.Noticias, Noticia{
+			Id: Id,
+			Titulo: Titulo,
+			Cuerpo: Cuerpo,
+			Fecha: Fecha,
+			Autor: Autor,
+			Correo: Correo,
+		})
+	}
+	rows.Close()
+
+	t, err := template.ParseFiles("./public/html/listaNoticia.html")
+	if err != nil{
+		log.Println(err)
+	}
+	t.Execute(w, L)
+	if err != nil{
+		log.Println(err)
+	}
+
+}
 func fecha()  {
 	año, mes, dia:= time.Now().Date()
 	fecha := fmt.Sprintf("%d/%d/%d",año, mes, dia)
