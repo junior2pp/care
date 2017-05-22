@@ -1,0 +1,45 @@
+* commit 888cc804f5336d4abb4c8ffd7b2342da2253f7d4
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Mon May 22 19:39:27 2017 +0000
+|
+|     el subenrutador para la noticia esta terminado
+|
+* commit 297d04906df4310dbd0d2af1f817240720385348
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Mon May 22 16:12:49 2017 +0000
+|
+|     Creamos un subenrutador de noticia
+|
+* commit c1b50e818484dd04449589018f99069d7626b5e1
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Mon May 22 12:20:07 2017 +0000
+|
+|     Errores controlados en la funcion de noticia si se coloca un id que no exixte te retorna un html de error
+|
+* commit a143a93589714b1b51af84b97293d2a516dde88a
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Sat May 20 17:17:13 2017 +0000
+|
+|     cree una plantilla que lleva un titulo un cuerpo y datos extras
+|
+* commit 88db72c9ff3c6f43d63f820a1a474c6fedf92386
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Sat May 20 16:38:45 2017 +0000
+|
+|     agregamos la funcion noticia
+|
+* commit 97430d8f26f87c261668de96d3ff019bb29da17e
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Sat May 20 16:04:02 2017 +0000
+|
+|     metimos un handlefunc para la pantalla del home
+|
+* commit 187bf1ee45e17725c24707929acbbe810efe927a
+| Author: Roberto Suarez <electrosonix12@gmail.com>
+| Date:   Sat May 20 15:50:24 2017 +0000
+|
+|     tenemos el servidor de archivo estaticos
+|
+* commit 6695074c404fa825189bf498da835d75b5b2dd77
+  Author: Roberto Suarez <electrosonix12@gmail.com>
+  Date:   Sat May 20 15:43:36 2017 +0000

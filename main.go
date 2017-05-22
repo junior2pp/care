@@ -13,8 +13,9 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/home", home)
-
+	h := r.PathPrefix("/").Subrouter()
+	h.HandleFunc("/", home)
+	
 	//Subenrutador de noticias
 	n := r.PathPrefix("/noticia").Subrouter()
 	n.HandleFunc("/{id:[0-9]+}", noticia)
