@@ -3,9 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Hola</title>
+    <link rel="stylesheet" href="/static/css/master.css">
   </head>
   <body>
-    <h1>Hola mundo</h1>
+    <div class="contenido">
 
+      <nav>
+        <ul>
+          <li><a id="parrafo" href="#" class="active">Parrafo</a></li>
+          <li><a  href="#">Parrafo</a></li>
+          <li><a  href="#">Parrafo</a></li>
+          <li><a  href="#">Parrafo</a></li>
+          </ul>
+      </nav>
+
+      <div id="pantalla" class="pantalla">
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('#parrafo').click(function(){
+            $("#pantalla").load("/parrafo");
+          });
+      });
+    </script>
   </body>
 </html>

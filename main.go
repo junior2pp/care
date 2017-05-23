@@ -15,6 +15,7 @@ func main() {
 	r := mux.NewRouter()
 	h := r.PathPrefix("/").Subrouter()
 	h.HandleFunc("/", home)
+	h.HandleFunc("/parrafo", parrafo)
 	
 	//Subenrutador de noticias
 	n := r.PathPrefix("/noticia").Subrouter()
@@ -163,6 +164,16 @@ func lista(w http.ResponseWriter, r *http.Request)  {
 		log.Println(err)
 	}
 
+}
+func parrafo(w http.ResponseWriter, r *http.Request)  {
+	t, err := template.ParseFiles("./public/html/parrafo.html")
+	if err != nil{
+		log.Println(err)
+	}
+	t.Execute(w, nil)
+	if err != nil{
+		log.Println(err)
+	}
 }
 func fecha()  {
 	año, mes, dia:= time.Now().Date()
