@@ -1,0 +1,12 @@
+.portada {
+  background-image: url(/static/imgs/farzad.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.container-page {
+  padding: 10px 125px;
+
+}

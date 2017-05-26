@@ -1,6 +1,4 @@
-$(".menu-bar").on("click", function() {
-  $(".paginas").toggleClass("abrir")
-})
+
 
 $("li a").click(function() {
 

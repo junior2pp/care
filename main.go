@@ -49,6 +49,7 @@ func home(w http.ResponseWriter, r *http.Request)  {
 		log.Println(err)
 	}
 }
+
 type Noticia struct {
 	Id int
 	Titulo string
@@ -61,6 +62,7 @@ type Noticia struct {
 type ListaNoticia struct {
 	Noticias []Noticia
 }
+
 func noticia(w http.ResponseWriter, r *http.Request)  {
 
 
