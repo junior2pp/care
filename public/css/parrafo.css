@@ -1,0 +1,7 @@
+.portada {
+  background-image: url(/static/imgs/jeremy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  height: 500px;
+}
