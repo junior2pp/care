@@ -1,11 +1,8 @@
 
 
 $("li a").click(function() {
-
   $("a").removeClass("activo")
-
   $(this).toggleClass("activo")
-
 })
 
 $(".submenu").click(function() {
