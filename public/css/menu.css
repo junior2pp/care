@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+
+  overflow: auto;
+  width: 250px;
+  height: 100%;
+  background-color: #050505;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 16px;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+nav ul li h1 {
+  margin: 0px;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 3em;
+  color: #e3e3e3;
+}
+
+nav ul li a span {
+  float: right;
+}
+
+nav ul li a.activo {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+}
+
+nav ul li a:hover:not(.activo) {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #212121;
+}
+/*submenu*/
+nav ul ul {
+  position: relative;
+  display: none;
+}
+
+nav ul li:hover ul {
+  display: none;
+}
+
+nav ul ul li a {
+  padding-left: 30px;
+  background-color: #1d1d1d;
+}
+
+
+.menu-bar {
+  padding: 10px;
+  font-size: 1.8em;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+}
+.menu {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+}
+
+.pagina {
+  margin-left: 250px;
+}

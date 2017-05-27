@@ -16,6 +16,8 @@ func main() {
 	h := r.PathPrefix("/").Subrouter()
 	h.HandleFunc("/", home)
 	h.HandleFunc("/parrafo", parrafo)
+	h.HandleFunc("/go", golang)
+	h.HandleFunc("/medioambiente", medioambiete)
 	
 	//Subenrutador de noticias
 	n := r.PathPrefix("/noticia").Subrouter()
@@ -47,6 +49,7 @@ func home(w http.ResponseWriter, r *http.Request)  {
 		log.Println(err)
 	}
 }
+
 type Noticia struct {
 	Id int
 	Titulo string
@@ -59,6 +62,7 @@ type Noticia struct {
 type ListaNoticia struct {
 	Noticias []Noticia
 }
+
 func noticia(w http.ResponseWriter, r *http.Request)  {
 
 
@@ -175,6 +179,29 @@ func parrafo(w http.ResponseWriter, r *http.Request)  {
 		log.Println(err)
 	}
 }
+
+func golang(w http.ResponseWriter, r *http.Request)  {
+	t, err := template.ParseFiles("./public/html/go.html")
+	if err != nil{
+		log.Println(err)
+	}
+	t.Execute(w, nil)
+	if err != nil{
+		log.Println(err)
+	}
+}
+
+func medioambiete(w http.ResponseWriter, r *http.Request)  {
+	t, err := template.ParseFiles("./public/html/medio_ambiente.html")
+	if err != nil{
+		log.Println(err)
+	}
+	t.Execute(w, nil)
+	if err != nil{
+		log.Println(err)
+	}
+}
+
 func fecha()  {
 	año, mes, dia:= time.Now().Date()
 	fecha := fmt.Sprintf("%d/%d/%d",año, mes, dia)

@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/static/css/master.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="noticia">
-
-    <h1 class="titulo">{{.Titulo}}</h1>
-
-    <div class="cuerpo">
-      <p>{{.Cuerpo}}</p>
-
-
-      <div class="extras">
-        <h3>Fecha de creacion: {{.Fecha}}</h3>
-        <h3>Autor: {{.Autor}}</h3>
-        <h3>E-mail del autor: {{.Correo}}</h3>
-      </div>
+  <div class="container">
+    <div class="page-header">
+      <h1 class="text-center">{{.Titulo}}</h1>
     </div>
-  </div>
 
+      <p class="text-justify">{{.Cuerpo}}</p>
+      <div class="well-sm">
+        <h5>Fecha de creacion: {{.Fecha}}</h5>
+        <h5>Autor: {{.Autor}}</h5>
+        <h5>E-mail del autor: {{.Correo}}</h5>
+      </div>
+  </div>
 
 </body>
 </html>
