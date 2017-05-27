@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Hola</title>
+    <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/menu.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.mCustomScrollbar.js"></script>
   </head>
   <body>
     <dic class="page">
       <!-- menu -->
       <nav class="menu">
-        <ul>
+        <ul class="barra">
           <li>
             <h1>Logo</h1>
           </li>
@@ -94,7 +96,16 @@
 
 
 
-
+    <!-- script para hacer scroll en el menu -->
+    <script>
+        (function($){
+            $(window).on("load",function(){
+                $(".barra").mCustomScrollbar({
+                  theme:"light-thick"
+                });
+            });
+        })(jQuery);
+    </script>
 
     <script>
       $(document).ready(function(){
